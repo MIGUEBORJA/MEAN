@@ -4,7 +4,7 @@
   "description": "Api productos proyecto mean",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ."
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "me",

@@ -3,26 +3,42 @@
         <div class="col-lg-6 offset-3">
             <div class="card">
                 <div class="card-body">
-                    <span class="titulo">Crear Producto</span>
-                    <form action="" class="mt-3">
+                    <span class="titulo">{{ titulo | uppercase }}</span>
+                    <form action="" class="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
                         <div class="mb-3">
                             <input type="email" class="form-control" id="producto" aria-describedby="emailHelp"
-                            placeholder="Nombre Producto" autocomplete="off">
+                            placeholder="Nombre Producto" autocomplete="off"
+                            formControlName="producto">
+                            <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError
+                            ('required') && productoForm.get('producto')?.touched">El nombre del producto
+                             es obligatorio</div>
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="categoria" aria-describedby="emailHelp"
-                            placeholder="categoria" autocomplete="off">
+                            placeholder="categoria" autocomplete="off"
+                            formControlName="categoria">
+                            <div class="text-danger" *ngIf="productoForm.get('categoria')?.hasError
+                            ('required') && productoForm.get('categoria')?.touched">La categoria del producto 
+                            es obligatoria</div>
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="ubicacion" aria-describedby="emailHelp"
-                            placeholder="ubicacion" autocomplete="off">
+                            placeholder="ubicacion" autocomplete="off"
+                            formControlName="ubicacion">
+                            <div class="text-danger" *ngIf="productoForm.get('ubicacion')?.hasError
+                            ('required') && productoForm.get('ubicacion')?.touched">La ubicación del producto 
+                            es obligatoria</div>
                         </div>
                         <div class="mb-3">
                             <input type="number" class="form-control" id="precio" aria-describedby="emailHelp"
-                            placeholder="Precio Del Producto" autocomplete="off">
+                            placeholder="Precio Del Producto" autocomplete="off"
+                            formControlName="precio">
+                            <div class="text-danger" *ngIf="productoForm.get('precio')?.hasError
+                            ('required') && productoForm.get('precio')?.touched">El precio del producto 
+                            es obligatorio</div>
                         </div>
                         <div class="mb-3">
-                            <button class="btn btn-secondary float-start">VOLVER</button>
+                            <button class="btn btn-secondary float-start" routerLink="/">VOLVER</button>
                             <button type="submit" class="btn btn-success float-end">ACEPTAR</button>
                         </div>
                     </form>
